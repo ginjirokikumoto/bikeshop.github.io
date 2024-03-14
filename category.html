@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bike shop</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.3/dist/css/autoComplete.min.css">
+    <style>
+        div div ul li:hover {
+            opacity: 0.85;
+        }
+
+        ul:has(img) {
+            margin: 5px;
+            padding: 5px;
+            list-style: none;
+            display: flex;
+            text-align: center;
+            padding-top: 0;
+        }
+
+        li:has(img) {
+            border: solid 2px #808080;
+            border-radius: 10px;
+            background-color: white
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <input type="search" id="autoComplete">
+        <input type="submit" id="submit" value="検索">
+    </header>
+
+    <div id="main">
+        <div class="breadcrumb">
+            <span><a href="index.html">カテゴリーを選択</a></span>
+            >
+            <span><a id="breadcrumb_2html"></a></span>
+        </div>
+        <div class="box1">
+            <h2></h2>
+            <div class="box2"></div>
+        </div>
+    </div>
+
+    <!-- <footer>
+
+    </footer> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="javascript/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"></script>
+    <script>
+        const autoCompleteJS = new autoComplete({
+            placeHolder: "商品名から探す",
+            data: {
+                src: [],
+                cache: true,
+            },
+            resultItem: {
+                highlight: true
+            },
+            events: {
+                input: {
+                    selection: (event) => {
+                        const selection = event.detail.selection.value;
+                        autoCompleteJS.input.value = selection;
+                    }
+                }
+            }
+        });
+    </script>
+
+</html>
